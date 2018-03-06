@@ -60,11 +60,19 @@ exports.cssLoaders = function (options) {
     postcss: generateLoaders(),
     less: generateLoaders('less'),
     sass: generateLoaders('sass', { indentedSyntax: true }),
-    scss: generateLoaders('sass'),
+    scss: generateLoaders('sass').concat(
+      {
+        loader: 'sass-resources-loader',
+        options: {
+          resources: [path.resolve(__dirname, '../src/assets/styles/sass/_variables.scss')]
+        }
+      }
+    ),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
   }
 }
+
 
 // Generate loaders for standalone style files (outside of .vue)
 exports.styleLoaders = function (options) {

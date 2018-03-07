@@ -1,6 +1,8 @@
 node_modules/
 .nyc_output/
 static/
+.vscode
+dist/
 
 # misc
 .DS_Store
